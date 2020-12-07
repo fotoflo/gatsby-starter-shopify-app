@@ -1,5 +1,6 @@
 {
   "projects": {
-    "development": "gatsby-starter-shopify-app"
+    "development": "shopify-head-manager",
+    "default": "shopify-head-manager"
   }
 }
