@@ -14,7 +14,7 @@
     "apollo-link-error": "^1.1.10",
     "apollo-link-http": "^1.5.11",
     "axios": "^0.18.0",
-    "firebase": "^5.9.1",
+    "firebase": "^8.1.2",
     "gatsby": "^2.1.17",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-layout": "^1.0.12",
@@ -34,10 +34,14 @@
     "universal-cookie": "^3.0.7"
   },
   "devDependencies": {
-    "firebase-tools": "^6.5.0",
+    "firebase-functions-test": "^0.2.3",
+    "firebase-tools": "^6.12.0",
     "prettier": "^1.16.4"
   },
   "keywords": [
+    "firebase",
+    "shopify",
+    "react",
     "gatsby"
   ],
   "license": "MIT",
@@ -45,9 +49,10 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "start": "source .env.development && npm run develop",
+    "firebase": "firebase emulators:start",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "ngrok": "source .env.development && ngrok http -subdomain=$NGROK_DOMAIN 5001"
   },
   "repository": {
     "type": "git",

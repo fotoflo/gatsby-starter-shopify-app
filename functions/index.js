@@ -28,7 +28,7 @@ const shopifyToken = new ShopifyToken({
 
 admin.initializeApp({
     credential: admin.credential.cert({
-        projectId: functions.config().fire.project_id,
+        projectId: functions.config().fire.app_project_id,
         clientEmail: functions.config().fire.client_email,
         privateKey: functions.config().fire.private_key.replace(/\\n/g, '\n'),
     }),

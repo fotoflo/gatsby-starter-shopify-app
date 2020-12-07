@@ -37,37 +37,7 @@ FIREBASE_PROJECT_ID=example-project-id
 
 9. Run `firebase login` to login and authenticate.
 10. Run `firebase init functions` and select the project you created in step 2.
-11. Add required local variables to Firebase config:
-
-```bash
-firebase functions:config:set \
-fire.project_id="PLACEHOLDER" \
-fire.client_email="PLACEHOLDER" \
-fire.private_key="PLACEHOLDER" \
-shopify.app_api_key="PLACEHOLDER" \
-shopify.app_shared_secret="PLACEHOLDER" \
-shopify.app_url="PLACEHOLDER" \
-shopify.app_name_url="PLACEHOLDER" \
-shopify.app_scopes="PLACEHOLDER"
-```
-
-> Note that app_url should be along the lines of `https://{FIREBASE-APP-NAME-HERE}.firebaseapp.com`. For example (do not use this as it won't work):
-
-```bash
-firebase functions:config:set \
-fire.app_project_id="PLACEHOLDER" \
-fire.client_email="PLACEHOLDER" \
-fire.private_key="PLACEHOLDER" \
-shopify.app_api_key="13291e0f4f91f65b7e87634598a23cf9" \
-shopify.app_shared_secret="ee24a5654348b3b5686d4ab5fb2199cf" \
-shopify.app_url="http://azd2ze7c.ngrok.io" \
-shopify.app_name_url="my-firebase-app" \
-shopify.app_scopes="read_orders"
-```
-
-12. To successfully use these env variables during local development, we need to download them to the `/functions` directory. To download, run: `cd ./functions && firebase functions:config:get>.runtimeconfig.json && cd ../`
-
-13. In the Firebase console `https://console.firebase.google.com`, select your project and navigate to Database where you'll create a **Firestore Database**. Add a root collection called shops and add a base document with the following attributes:
+12. In the Firebase console `https://console.firebase.google.com`, select your project and navigate to Database where you'll create a **Firestore Database**. Add a root collection called shops and add a base document with the following attributes:
 
 | Name | Type | Value |
 | :- | :- | :- |
@@ -78,6 +48,14 @@ shopify.app_scopes="read_orders"
 | updatedAt | timestamp | |
 
 Note, because some of the Firebase functions such as /api/graphql and /callback make outside requests to Shopify API, you must use a non-free plan such as the "Pay-as-you-go" which includes the free plan tier. You will see an error in your Firebase functions logs saying *"Billing account not configured. External network is not accessible and quotas are severely limited. Configure billing account to remove these restriction."* 
+11. run `source .env.development` to export your local env
+12. run `./functions/config/runtime-config-setter.sh` 
+to add required local variables to Firebase config
+14. Start up the servers
+run `npm start`
+and `npm run ngrok`
+and `firebase emulators:start`
+
 
 ## API Layer
 

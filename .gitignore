@@ -73,3 +73,5 @@ yarn-error.log
 # firebase
 .runtimeconfig.json
 .firebase
+*-adminsdk-*.json
+.firebaserc
